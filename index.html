@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Up Game.id</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #1c1c1c, #2c3e50);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .form-container {
+      background-color: #2c2f33;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      max-width: 400px;
+      width: 100%;
+      animation: fadeIn 1s ease;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00ff99;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 10px;
+      background-color: #fff;
+      color: #333;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1ebd5a;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media(max-width: 480px) {
+      .form-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Top Up Game</h2>
+
+    <label for="gameSelect">Pilih Game:</label>
+    <select id="gameSelect">
+      <option value="Free Fire">Free Fire</option>
+    </select>
+
+    <label for="gameId">ID Game:</label>
+    <input type="text" id="gameId" placeholder="Contoh: 12345678" />
+
+    <label for="serverId">Server (jika ada):</label>
+    <input type="text" id="serverId" placeholder="Contoh: 1234" />
+
+    <label for="jumlahTopUp">Jumlah Top Up:</label>
+    <select id="jumlahTopUp">
+      <option value="10 Diamond">10 Diamond</option>
+      <option value="50 Diamond">50 Diamond</option>
+      <option value="55 Diamond">55 Diamond</option>
+      <option value="80 Diamond">80 Diamond</option>
+      <option value="120 Diamond">120 Diamond</option>
+      <option value="130 Diamond">130 Diamond</option>
+      <option value="145 Diamond">145 Diamond</option>
+      <option value="150 Diamond">150 Diamond</option>
+      <option value="190 Diamond">190 Diamond</option>
+      <option value="280 Diamond">280 Diamond</option>
+      <option value="355 Diamond">355 Diamond</option>
+      <option value="420 Diamond">420 Diamond</option>
+      <option value="Level Up Pass">Level Up Pass</option>
+      <option value="Mingguan Membership">Mingguan Membership</option>
+      <option value="Bulanan Membership">Bulanan Membership</option>
+      <option value="BP Card">BP Card</option>
+      <option value="DLL CHAT ADMIN">DLL CHAT ADMIN</option>
+    </select>
+
+    <button onclick="chatWhatsApp()">Top Up Sekarang</button>
+  </div>
+
+  <script>
+    function chatWhatsApp() {
+      const game = document.getElementById("gameSelect").value;
+      const id = document.getElementById("gameId").value.trim();
+      const server = document.getElementById("serverId").value.trim();
+      const jumlah = document.getElementById("jumlahTopUp").value;
+
+      if (!id) {
+        alert("Silakan isi ID Game terlebih dahulu.");
+        return;
+      }
+
+      let pesan = `Halo Admin,%0ASaya ingin top up game:%0A`;
+      pesan += `Game: ${game}%0A`;
+      pesan += `ID: ${id}`;
+      if (server) pesan += ` (${server})`;
+      pesan += `%0AJumlah: ${jumlah}`;
+
+      const nomorAdmin = "6285817982811";
+      window.open(`https://wa.me/${nomorAdmin}?text=${pesan}`, "_blank");
+    }
+  </script>
+</body>
+</html>
