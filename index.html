@@ -83,7 +83,7 @@
     <h2>Top Up Game</h2>
 
     <label for="gameSelect">Pilih Game:</label>
-    <select id="gameSelect"></select>
+    <select id="gameSelect">
       <option value="Free Fire">Free Fire</option>
     </select>
 
@@ -129,7 +129,7 @@
         return;
       }
 
-      let pesan = `Halo Admin,%0ASaya ingin top up game:%0A`;
+      let pesan = `Halo Admin,%0ASaya ingin top up game %0A`;
       pesan += `Game: ${game}%0A`;
       pesan += `ID: ${id}`;
       if (server) pesan += ` (${server})`;
